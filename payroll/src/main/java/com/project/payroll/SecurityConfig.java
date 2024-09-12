@@ -33,6 +33,7 @@ public class SecurityConfig {
 						.requestMatchers("/user/hello").permitAll() 
 						.requestMatchers("/employee/add").hasRole("HR")
 						.requestMatchers("employee/one/{eid}").hasAnyRole("HR","EMPLOYEE")
+						.requestMatchers("/employee/salary/set/{eid}").hasRole("HR")
 						.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
